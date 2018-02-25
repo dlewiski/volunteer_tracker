@@ -1,6 +1,6 @@
-# Hangman
+# Volunteer Tracker
 
-#### A web application to help kids learn definitions of words
+#### A web application to help non-profit keep track of volunteers and projects
 
 #### By David Lewis
 
