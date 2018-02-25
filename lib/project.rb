@@ -15,4 +15,14 @@ attr_accessor :title, :id
   def ==(other_project)
     self.title().== (other_project.title())
   end
+
+  def self.all
+    returned_projects = DB.exec("SELECT * FROM projects;")
+    projects = []
+    returned_projects.each do |project|
+      title = project.fetch("title")
+      projects.push(Project.new({:title => title}))
+    end
+    projects
+  end
 end
