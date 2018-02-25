@@ -10,5 +10,6 @@ attr_accessor :title, :id
   def save
     var = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
     @id = var.first.fetch('id').to_i
+    binding.pry
   end
 end
