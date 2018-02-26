@@ -9,11 +9,11 @@ attr_accessor :title, :id
 
   def save
     var = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
-    @id = var.first.fetch('id').to_i
+    @id = var.first.fetch('id').to_i.to_int
   end
 
   def ==(other_project)
-    self.title().== (other_project.title())
+    (self.title().== (other_project.title()))
   end
 
   def self.all
@@ -24,5 +24,15 @@ attr_accessor :title, :id
       projects.push(Project.new({:title => title}))
     end
     projects
+  end
+
+  def self.find(id)
+    located_project = nil
+    Project.all.each do |project|
+      if project.id.==(id)
+        located_project = project
+      end
+    end
+    return located_project
   end
 end
