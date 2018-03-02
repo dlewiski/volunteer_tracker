@@ -1,4 +1,3 @@
-require "project"
 require "spec_helper"
 
 describe Project do
