@@ -13,4 +13,8 @@ class Volunteer
     var = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', '#{@project_id}') RETURNING id;")
     @id = var.first.fetch('id').to_i
   end
+
+  def ==(new_volunteer)
+   self.name.==(new_volunteer.name)
+ end
 end
