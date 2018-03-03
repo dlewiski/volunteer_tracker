@@ -17,4 +17,8 @@ class Volunteer
   def ==(new_volunteer)
    self.name.==(new_volunteer.name)
  end
+
+ def project_id
+   @project_id
+ end
 end
