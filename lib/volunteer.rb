@@ -33,4 +33,14 @@ class Volunteer
    end
    volunteers
  end
+
+ def self.find(id)
+   located_volunteer = nil
+   Volunteer.all.each do |volunteer|
+     if volunteer.id.==(id)
+       located_volunteer = volunteer
+     end
+   end
+   located_volunteer
+ end
 end
