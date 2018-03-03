@@ -2,17 +2,20 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 also_reload('lib/**/*.rb')
-require './lib/word_definer'
+require './lib/project'
+require './lib/volunteer'
+require 'pg'
+
+DB = PG.connect({:dbname => 'project'})
 
 get('/') do
-  @first_words = Word.new
-  @first_words.add_word("happy")
-  erb(:word_list)
+  @projects = Project.all
+  erb(:index)
 end
 
 post('/') do
-  @first_words = Word.new
-  word = params["word"]
-  @first_words.add_word(word)
-  erb(:word_list)
+  new_project = Project.new({:title => params["project"]})
+  new_project.save
+  @projects = Project.all
+  erb(:index)
 end
