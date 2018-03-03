@@ -14,7 +14,7 @@ get('/') do
 end
 
 post('/') do
-  new_project = Project.new({:title => params["project"]})
+  new_project = Project.new({:title => params["title"]})
   new_project.save
   @projects = Project.all
   erb(:index)
