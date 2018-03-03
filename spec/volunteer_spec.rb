@@ -49,7 +49,6 @@ describe Volunteer do
 
   describe '.find' do
     it 'returns a volunteer by id' do
-      binding.pry
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
       volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
