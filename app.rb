@@ -10,6 +10,7 @@ DB = PG.connect({:dbname => 'project'})
 
 get('/') do
   @projects = Project.all
+  @volunteers = Volunteer.all
   erb(:index)
 end
 
@@ -17,6 +18,15 @@ post('/') do
   new_project = Project.new({:title => params["title"]})
   new_project.save
   @projects = Project.all
+  @volunteers = Volunteer.all
+  erb(:index)
+end
+
+post('/volunteer/:id') do
+  volunteer = Volunteer.new({:name => params['name'], :project_id => params['id'].to_i})
+  volunteer.save
+  @projects = Project.all
+  @volunteers = Volunteer.all
   erb(:index)
 end
 
