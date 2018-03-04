@@ -1,0 +1,7 @@
+<h2><%= @volunteer.name %></h2>
+<form action="/project/<%= @volunteer.project_id()%>" method="post">
+  <input name="volunteer_id" type="hidden" value="<%= @volunteer.id()%>">
+  <label for="name">Edit volunteer:</label>
+  <input type="text" name="name" id="name" placeholder="new name" autocomplete="off">
+  <button type="submit" class="btn btn-info">Update Volunteer</button>
+</form><br>

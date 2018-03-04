@@ -1,4 +1,20 @@
 <h2><%= @project.title %></h2>
 <a href="/project/<%= @project.id()%>/edit">Edit Project</a><br><br>
 
+<h3>Add volunteers to this project</h3>
+<form action="/project/<%= @project.id()%>/volunteer" method="post">
+  <label for="name">Name of volunteer:</label>
+  <input type="text" name="name" id="name">
+  <button type="submit" class="btn btn-info">Add Volunteer</button>
+</form><br>
+
+<h3>Volunteers on this project:</h3>
+<% @volunteers.each do |volunteer| %>
+  <% if volunteer.project_id.to_i == @project.id %>
+  <h4><a href="/volunteer/<%= volunteer.id()%>"><%= volunteer.name %></a></h4>
+  <% end %>
+<% end %>
+<br>
+
+
 <a href="/">Return to list of projects</a>
