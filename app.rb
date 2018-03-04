@@ -36,3 +36,10 @@ patch('/project/:id') do
   @project.update({:title => new_title, :id => @project.id})
   erb(:projects )
 end
+
+delete('/delete/:id/project') do
+  project = Project.find(params['id'].to_i)
+  project.delete
+  @projects = Project.all
+  erb(:index)
+end
