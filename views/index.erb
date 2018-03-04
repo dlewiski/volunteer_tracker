@@ -1,0 +1,12 @@
+<h2>List of current projects</h2>
+<% @projects.each do |project| %>
+  <h4><a href="/project/<%= project.id()%>"><%= project.title %></a></h4>
+  <hr>
+<% end %>
+
+<h2>Add a new project:</h2>
+<form action="/" method="post">
+  <label for="title">Name of project:</label>
+  <input type="text" name="title" id="title">
+  <button type="submit" class="btn btn-info">Create Project</button>
+</form>
