@@ -2,7 +2,7 @@
 <a href="/project/<%= @project.id()%>/edit">Edit Project</a><br><br>
 
 <h3>Add volunteers to this project</h3>
-<form action="/" method="post">
+<form action="/project/<%= @project.id()%>" method="post">
   <label for="name">Name of volunteer:</label>
   <input type="text" name="name" id="name">
   <button type="submit" class="btn btn-info">Add Volunteer</button>
